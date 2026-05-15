@@ -199,7 +199,7 @@ body.panel-open #hero{
   height:100vh;
   overflow-y:auto;
   overscroll-behavior:contain;
-  transform:translateY(-105%);
+  transform:translate3d(0,calc(-110% - 8px),0);
   visibility:hidden;
   pointer-events:none;
   transition:
@@ -212,7 +212,7 @@ body.panel-open #hero{
 body.panel-work #work,
 body.panel-about #about,
 body.panel-contact #contact{
-  transform:translateY(0);
+  transform:translate3d(0,0,0);
   visibility:visible;
   pointer-events:auto;
   transition:
@@ -221,7 +221,7 @@ body.panel-contact #contact{
 }
 
 .page-panel.is-leaving{
-  transform:translateY(105%);
+  transform:translate3d(0,calc(-110% - 8px),0);
   visibility:visible;
   pointer-events:none;
   transition:
@@ -230,7 +230,7 @@ body.panel-contact #contact{
 }
 
 .page-panel.is-resetting{
-  transform:translateY(-105%) !important;
+  transform:translate3d(0,calc(-110% - 8px),0) !important;
   visibility:hidden !important;
   pointer-events:none !important;
   transition:none !important;
@@ -462,7 +462,7 @@ body.panel-contact .panel-home-link:hover{
   height:100vh;
   overflow:hidden;
   background:var(--bg);
-  transform:translateY(105%);
+  transform:translate3d(0,calc(110% + 8px),0);
   visibility:hidden;
   pointer-events:none;
   transition:
@@ -471,7 +471,7 @@ body.panel-contact .panel-home-link:hover{
   will-change:transform;
 }
 .project-panel.active{
-  transform:translateY(0);
+  transform:translate3d(0,0,0);
   visibility:visible;
   pointer-events:auto;
   transition:
@@ -479,7 +479,7 @@ body.panel-contact .panel-home-link:hover{
     visibility 0s;
 }
 .project-panel.is-leaving{
-  transform:translateY(105%);
+  transform:translate3d(0,calc(110% + 8px),0);
   visibility:visible;
   pointer-events:none;
   transition:
@@ -487,8 +487,8 @@ body.panel-contact .panel-home-link:hover{
     visibility 0s linear 1050ms;
 }
 body.project-open #work{
-  transform:scale(.985);
-  opacity:.32;
+  transform:none;
+  opacity:1;
   pointer-events:none;
   transition:
     opacity 650ms ease,
@@ -2677,8 +2677,18 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     'persian-tech': document.getElementById('project-persian-tech'),
     primer: document.getElementById('project-primer')
   };
+  const DURATION = 1050;
+  let transitionTimer = null;
+
+  function clearTimer(){
+    if(transitionTimer){
+      window.clearTimeout(transitionTimer);
+      transitionTimer = null;
+    }
+  }
 
   function clearLeaving(){
+    clearTimer();
     Object.values(panels).forEach(p => p && p.classList.remove('is-leaving','is-resetting'));
     Object.values(projects).forEach(p => p && p.classList.remove('is-leaving'));
   }
@@ -2699,10 +2709,30 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   }
 
   function closePanel(){
-    clearLeaving();
+    clearTimer();
+    const currentName = body.classList.contains('panel-work') ? 'work'
+      : body.classList.contains('panel-about') ? 'about'
+      : body.classList.contains('panel-contact') ? 'contact'
+      : null;
+    const currentPanel = currentName ? panels[currentName] : null;
+
+    if(currentPanel){
+      currentPanel.classList.add('is-leaving');
+    }
+
     Object.values(projects).forEach(p => p && p.classList.remove('active'));
     body.classList.remove('panel-open','panel-work','panel-about','panel-contact','project-open');
     setHomeLabel('Home');
+
+    if(currentPanel){
+      transitionTimer = window.setTimeout(() => {
+        currentPanel.classList.add('is-resetting');
+        currentPanel.classList.remove('is-leaving');
+        currentPanel.offsetHeight;
+        requestAnimationFrame(() => currentPanel.classList.remove('is-resetting'));
+        transitionTimer = null;
+      }, DURATION);
+    }
   }
 
   function openProject(name){
@@ -2718,10 +2748,24 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   }
 
   function closeProject(){
-    Object.values(projects).forEach(p => p && p.classList.remove('active','is-leaving'));
+    clearTimer();
+    const closingPanel = Object.values(projects).find(p => p && p.classList.contains('active'));
+
+    if(closingPanel){
+      closingPanel.classList.remove('active');
+      closingPanel.classList.add('is-leaving');
+    }
+
     body.classList.remove('project-open','panel-about','panel-contact');
     body.classList.add('panel-open','panel-work');
     setHomeLabel('Home');
+
+    if(closingPanel){
+      transitionTimer = window.setTimeout(() => {
+        closingPanel.classList.remove('is-leaving');
+        transitionTimer = null;
+      }, DURATION);
+    }
   }
 
   document.addEventListener('click', function(event){
