@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Nazanin Razi â€” Web Designer &amp; Front-end Developer</title>
+<title>Nazanin Razi - Web Designer &amp; Front-end Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=Inter:wght@300;400;500;600&amp;family=LXGW+Marker+Gothic&amp;family=Martian+Mono:wght@100..800&amp;family=Noto+Kufi+Arabic:wght@100..900&amp;family=Saira:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -125,21 +125,12 @@ body.panel-contact .panel-home-link:focus-visible{
 .proj-preview img{width:100%;display:block;}
 
 /* ABOUT */
-#about{padding:120px 48px;display:grid;grid-template-columns:1.1fr 1fr;gap:120px;align-items:start;background:var(--bg2);}
-.about-headline{font-family:var(--serif);font-size:clamp(36px,4.5vw,60px);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:32px;}
+#about{padding:clamp(116px,14vh,150px) var(--page-pad) 120px;display:grid;grid-template-columns:minmax(0,980px) minmax(280px,1fr);gap:clamp(80px,9vw,148px);align-items:start;background:var(--bg2);}
+#about>.reveal{max-width:980px;}
+.about-headline{font-family:var(--serif);font-size:clamp(56px,7.2vw,104px);font-weight:300;line-height:.94;letter-spacing:-.035em;color:var(--ink);margin-bottom:64px;font-variation-settings:'opsz' 144;}
 .about-headline em{font-style:normal;color:var(--red);}
-.about-divider{width:36px;height:1px;background:var(--red);margin-bottom:24px;}
-.about-text{font-size:14px;line-height:1.95;color:var(--muted);}
-.about-text p+p{margin-top:16px;}
-.skills-title{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;}
-.skill-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;padding:18px 0;border-bottom:.5px solid var(--border);}
-.skill-row:first-of-type{border-top:.5px solid var(--border);}
-.skill-name-wrap{display:flex;align-items:flex-start;gap:10px;}
-.skill-dot{width:3px;height:3px;border-radius:50%;background:var(--red);margin-top:8px;flex-shrink:0;}
-.skill-copy{display:flex;flex-direction:column;gap:6px;}
-.skill-name{font-size:13px;color:var(--ink);}
-.skill-desc{font-size:12px;line-height:1.65;color:var(--muted);max-width:430px;}
-.skill-tag{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding-top:2px;opacity:.55;}
+.about-text{max-width:780px;font-size:20px;line-height:1.72;color:var(--ink2);font-weight:300;}
+.about-text p+p{margin-top:12px;}
 
 @keyframes heroSoft{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;}
@@ -153,8 +144,6 @@ body.panel-contact .panel-home-link:focus-visible{
   .project-row{grid-template-columns:40px 1fr 32px;gap:16px;}
   .proj-right{display:none;}
   #about{grid-template-columns:1fr;gap:48px;}
-  .skill-row{grid-template-columns:1fr;gap:8px;}
-  .skill-tag{display:none;}
   .hero-meta-row{flex-direction:column;gap:18px;}
   .hero-meta-item{font-size:17px;}
   .hero-menu-link::after{left:18px;bottom:-7px;}
@@ -338,7 +327,7 @@ body.panel-open .panel-home-link::before{
 }
 
 
-/* CONTACT â€” fullscreen dark panel */
+/* CONTACT - fullscreen dark panel */
 #contact.contact-panel{
   padding:0;
   min-height:100vh;
@@ -454,7 +443,7 @@ body.panel-contact .panel-home-link:hover{
 
 
 
-/* PROJECT DETAIL PANELS â€” slide from bottom */
+/* PROJECT DETAIL PANELS - slide from bottom */
 .project-panel{
   position:fixed;
   inset:0;
@@ -726,7 +715,7 @@ body.project-open #cur,body.project-open #cur-r{display:block !important;opacity
 
 
 
-/* PROJECT INLINE ISOLATION FIX â€” match the old iframe visuals */
+/* PROJECT INLINE ISOLATION FIX - match the old iframe visuals */
 .project-content{
   font-family:var(--sans) !important;
 }
@@ -775,7 +764,7 @@ body.project-open #cur,body.project-open #cur-r{display:block !important;opacity
   }
 }
 
-/* RESPONSIVE POLISH PASS â€” layout only, preserves visual style */
+/* RESPONSIVE POLISH PASS - layout only, preserves visual style */
 :root{
   --page-pad:clamp(20px,4vw,64px);
   --panel-top:clamp(84px,10vh,124px);
@@ -896,9 +885,9 @@ body.project-open #work{
 }
 
 #about{
-  padding:var(--panel-top) var(--page-pad) clamp(56px,8vh,96px) !important;
-  grid-template-columns:minmax(0,1.05fr) minmax(320px,1fr);
-  gap:clamp(48px,8vw,120px);
+  padding:clamp(116px,14vh,150px) var(--page-pad) clamp(56px,8vh,96px) !important;
+  grid-template-columns:minmax(0,980px) minmax(280px,1fr);
+  gap:clamp(80px,9vw,148px);
 }
 
 #contact.contact-panel{
@@ -1029,8 +1018,8 @@ body.project-open #work{
   }
 
   #about{
-    grid-template-columns:1fr;
-    gap:48px;
+    padding:104px var(--page-pad) 70px !important;
+    grid-template-columns:minmax(0,1fr);
   }
 
   .project-content .hero{
@@ -1217,11 +1206,12 @@ body.project-open #work{
   }
 
   .about-headline{
-    font-size:clamp(36px,12vw,56px);
+    font-size:clamp(44px,12vw,80px);
   }
 
-  .skill-row{
-    min-height:70px;
+  .about-text{
+    font-size:17px;
+    line-height:1.72;
   }
 
   .contact-content{
@@ -3640,6 +3630,294 @@ body.project-scrolling .work-floating{
 #project-persian-tech .project-content .ptn-connected-section .archive-demo-frame{
   border:.5px solid rgba(15,30,61,.42) !important;
 }
+
+/* FINAL RESPONSIVE STABILIZATION - scale, spacing, and overflow only */
+html,
+body{
+  min-width:0 !important;
+}
+
+.hero-name,
+.about-headline,
+.proj-title,
+.project-content .hero-title,
+.project-content .filter-headline,
+.project-content .feature-headline,
+.project-content .int-headline,
+.project-content .cms-headline,
+.project-content .section-heading,
+.project-content .section-title,
+.project-content .archive-heading,
+.project-content .explore-item-title{
+  overflow-wrap:anywhere;
+}
+
+.project-content .hero-eyebrow,
+.project-content .hero-cat,
+.project-content .hero-tags,
+.project-content .fui-bar,
+.project-content .stats-inline,
+.project-content .ptn-demo-topline{
+  min-width:0;
+}
+
+.project-content .hero-eyebrow{
+  flex-wrap:wrap;
+  row-gap:10px;
+}
+
+.project-content .hero-cat{
+  line-height:1.5;
+}
+
+.project-content img,
+.project-content video,
+.project-content canvas,
+.project-content svg{
+  max-width:100% !important;
+}
+
+.project-content video,
+.project-content img{
+  height:auto;
+}
+
+.project-content .explore-item,
+.project-content .explore-live{
+  min-width:0;
+}
+
+@media(max-width:1200px){
+  #about{
+    min-height:100dvh;
+  }
+
+  #about>.reveal{
+    max-width:min(100%,860px);
+  }
+
+  .about-headline{
+    max-width:10ch;
+  }
+
+  .about-text{
+    max-width:min(100%,680px);
+  }
+
+  #project-yar .project-content .yar-cms-section .cms-inner{
+    grid-template-columns:minmax(0,1fr) minmax(380px,1fr) !important;
+  }
+}
+
+@media(max-width:960px){
+  #hero{
+    min-height:100svh;
+    height:auto;
+    padding-top:clamp(72px,12svh,112px) !important;
+    padding-bottom:clamp(48px,9svh,84px) !important;
+  }
+
+  .hero-center{
+    min-height:auto;
+  }
+
+  #about{
+    min-height:100svh;
+  }
+
+  .about-headline{
+    max-width:11ch;
+    margin-bottom:clamp(42px,7vh,58px);
+  }
+
+  .about-text{
+    max-width:min(100%,620px);
+  }
+
+  .project-content .hero{
+    min-height:auto !important;
+    align-items:start !important;
+  }
+
+  .project-content .hero-title,
+  #project-yar .project-content .hero-title,
+  #project-persian-tech .project-content .hero-title,
+  #project-primer .project-content .hero-title{
+    font-size:clamp(42px,11vw,76px) !important;
+    line-height:.96 !important;
+    max-width:100% !important;
+  }
+
+  .project-content .hero-sub{
+    max-width:min(100%,64ch) !important;
+  }
+
+  #project-persian-tech .project-content .ptn-cms-demo,
+  #project-persian-tech .project-content .ptn-connected-section .cms-inner,
+  #project-yar .project-content .yar-cms-section .cms-inner,
+  #project-primer .project-content .int-editorial{
+    grid-template-columns:1fr !important;
+  }
+
+  #project-persian-tech .project-content .schema-wrap.schema-clean,
+  #project-persian-tech .project-content .archive-demo-frame,
+  #project-yar .project-content .cms-screenshot-wrap,
+  #project-primer .project-content .int-proof{
+    width:100% !important;
+    max-width:none !important;
+    justify-self:stretch !important;
+    transform:none !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+
+  #project-persian-tech .project-content .flow-targets{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .project-content .explore{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto !important;
+    column-gap:clamp(24px,6vw,52px) !important;
+    row-gap:22px !important;
+    align-items:end !important;
+  }
+
+  .project-content .explore-left,
+  .project-content .explore-right{
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+
+  .project-content .explore-projects{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:wrap !important;
+    gap:clamp(18px,4vw,30px) !important;
+  }
+
+  .project-content .explore-item,
+  .project-content .explore-live,
+  .project-content .explore-item-title{
+    font-size:clamp(16px,2.6vw,19px) !important;
+    line-height:1.1 !important;
+    white-space:nowrap !important;
+  }
+
+  .project-content .explore-item-arrow,
+  .project-content .explore-live-arrow{
+    font-size:12px !important;
+    flex:0 0 auto !important;
+  }
+}
+
+@media(max-width:700px){
+  .project-content .explore{
+    grid-template-columns:1fr !important;
+    align-items:start !important;
+  }
+
+  .project-content .explore-left,
+  .project-content .explore-right{
+    justify-content:flex-start !important;
+  }
+
+  .project-content .explore-right{
+    padding-top:0 !important;
+  }
+
+  .project-content .explore-actions{
+    align-items:flex-start !important;
+  }
+}
+
+@media(max-width:520px){
+  .hero-meta-row{
+    justify-content:center !important;
+  }
+
+  .project-content .hero-eyebrow{
+    gap:10px !important;
+  }
+
+  .project-content .hero-line{
+    width:44px !important;
+  }
+
+  .project-content .hero-title,
+  #project-yar .project-content .hero-title,
+  #project-persian-tech .project-content .hero-title,
+  #project-primer .project-content .hero-title{
+    font-size:clamp(38px,12.5vw,58px) !important;
+    line-height:.98 !important;
+  }
+
+  .project-content .hero-sub{
+    font-size:15px !important;
+    line-height:1.68 !important;
+  }
+
+  .about-headline{
+    font-size:clamp(42px,15vw,68px);
+    max-width:9.5ch;
+  }
+
+  .about-text{
+    font-size:16px;
+    line-height:1.72;
+  }
+
+  #project-persian-tech .project-content .flow-targets{
+    grid-template-columns:1fr !important;
+  }
+
+  #project-persian-tech .project-content .ptn-demo-detail{
+    max-height:none !important;
+  }
+
+  .project-content .explore{
+    row-gap:20px !important;
+  }
+
+  .project-content .explore-projects{
+    width:100% !important;
+    justify-content:space-between !important;
+    gap:14px !important;
+  }
+
+  .project-content .explore-item,
+  .project-content .explore-live,
+  .project-content .explore-item-title{
+    font-size:15px !important;
+  }
+}
+
+@media(max-width:390px){
+  .hero-meta-row{
+    flex-wrap:wrap !important;
+    row-gap:8px !important;
+  }
+
+  .hero-sep{
+    display:none !important;
+  }
+
+  .project-content .explore-projects{
+    justify-content:flex-start !important;
+  }
+
+  .project-content .explore-item,
+  .project-content .explore-live,
+  .project-content .explore-item-title{
+    font-size:14px !important;
+    white-space:normal !important;
+  }
+
+  .project-content .explore-live{
+    width:auto !important;
+    justify-content:flex-start !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -3692,7 +3970,7 @@ body.project-scrolling .work-floating{
 <span class="proj-num">03</span>
 <h3 class="proj-title"><em>Primer</em></h3>
 <div class="proj-right">
-<p class="proj-desc">A fintech product landing page â€” simple, bold, and built to convert.</p>
+<p class="proj-desc">A fintech product landing page - simple, bold, and built to convert.</p>
 <div class="proj-tags"><span>Webflow</span><span>UI Design</span><span>Front-end</span></div>
 </div>
 <span aria-hidden="true" class="proj-arrow arrow-icon arrow-up"><svg fill="none" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg></span>
@@ -3702,76 +3980,11 @@ body.project-scrolling .work-floating{
 <!-- ABOUT -->
 <section class="page-panel" id="about">
 <div class="reveal">
-<p class="section-eyebrow" style="margin-bottom:40px;">About</p>
 <h2 class="about-headline">Every element<br/>should <em>earn</em><br/>its place.</h2>
-<div class="about-divider"></div>
 <div class="about-text">
-<p>Iâ€™m Nazanin â€” a web designer and front-end developer based in California, focused on structure, interaction, and clarity.</p>
-<p>I design and build websites that guide users through content, using motion and layout to support decisions â€” not distract from them.</p>
-<p>Good design is quiet. It removes friction, simplifies complexity, and leaves only what matters.</p>
-</div>
-</div>
-<div class="reveal" style="transition-delay:.15s;">
-<p class="skills-title">Skills &amp; Tools</p>
-<div class="skill-row">
-<div class="skill-name-wrap">
-<span class="skill-dot"></span>
-<div class="skill-copy">
-<span class="skill-name">Webflow Development</span>
-<span class="skill-desc">Building structured, responsive layouts with clean class systems and scalable CMS architecture.</span>
-</div>
-</div>
-<span class="skill-tag">Expert</span>
-</div>
-<div class="skill-row">
-<div class="skill-name-wrap">
-<span class="skill-dot"></span>
-<div class="skill-copy">
-<span class="skill-name">UI / UX Design</span>
-<span class="skill-desc">Designing interfaces that prioritize clarity, hierarchy, and ease of use.</span>
-</div>
-</div>
-<span class="skill-tag">Expert</span>
-</div>
-<div class="skill-row">
-<div class="skill-name-wrap">
-<span class="skill-dot"></span>
-<div class="skill-copy">
-<span class="skill-name">Front-end Development</span>
-<span class="skill-desc">Translating design into precise, responsive implementations.</span>
-</div>
-</div>
-<span class="skill-tag">Advanced</span>
-</div>
-<div class="skill-row">
-<div class="skill-name-wrap">
-<span class="skill-dot"></span>
-<div class="skill-copy">
-<span class="skill-name">Interaction Design</span>
-<span class="skill-desc">Using motion and state changes to guide attention and support user decisions.</span>
-</div>
-</div>
-<span class="skill-tag">Advanced</span>
-</div>
-<div class="skill-row">
-<div class="skill-name-wrap">
-<span class="skill-dot"></span>
-<div class="skill-copy">
-<span class="skill-name">Typography &amp; Layout</span>
-<span class="skill-desc">Creating rhythm, hierarchy, and readability across long-form pages.</span>
-</div>
-</div>
-<span class="skill-tag">Expert</span>
-</div>
-<div class="skill-row">
-<div class="skill-name-wrap">
-<span class="skill-dot"></span>
-<div class="skill-copy">
-<span class="skill-name">CMS Architecture</span>
-<span class="skill-desc">Designing structured content systems for scalable filtering and dynamic content.</span>
-</div>
-</div>
-<span class="skill-tag">Advanced</span>
+<p>I design and build websites focused on clarity, structure, and interaction.</p>
+<p>My work combines thoughtful design, front-end development, and content systems that make information easier to navigate.</p>
+<p>I'm interested in creating digital experiences that feel simple, intentional, and easy to use.</p>
 </div>
 </div>
 </section>
@@ -3787,7 +4000,7 @@ body.project-scrolling .work-floating{
 </div>
 <div class="contact-year">آ© 2025</div>
 </section>
-<!-- PROJECT DETAIL PANELS â€” inline sections -->
+<!-- PROJECT DETAIL PANELS - inline sections -->
 <section aria-label="Yar project detail" class="project-panel" id="project-yar">
 <div class="project-content">
 <section class="hero">
@@ -3823,9 +4036,9 @@ body.project-scrolling .work-floating{
 <p class="filter-intro">Combined dropdown filters, live search, and dynamic filtering built with Webflow CMS and Finsweet Attributes.</p>
 <!-- LIVE DEMO GIF -->
 <div class="filter-demo-wrap reveal">
-<p class="filter-state-label" style="margin-bottom:12px;">Live demo â€” real site</p>
+<p class="filter-state-label" style="margin-bottom:12px;">Live demo - real site</p>
 <img alt="Yar filter demo: selecting Series Seed, chip appears, AI search narrows results" class="filter-demo-gif" loading="lazy" src="yar-filter-demo.gif">
-<p class="filter-demo-caption">Filter selected â†’ chip appears â†’ results narrow instantly â€” no page reload</p>
+<p class="filter-demo-caption">Filter selected -> chip appears -> results narrow instantly - no page reload</p>
 </div>
 </div>
 <div class="section reveal yar-cms-section">
@@ -4055,7 +4268,7 @@ body.project-scrolling .work-floating{
 </div>
 <div class="primer-panel phone" id="primerPhone">
 <div class="phone-screen">
-<div class="phone-top"><span>Primer</span><span>â€¢â€¢â€¢</span></div>
+<div class="phone-top"><span>Primer</span><span>...</span></div>
 <div class="card-balance">
 <p class="card-label">Balance</p>
 <p class="card-num">$12.4k</p>
@@ -4104,7 +4317,7 @@ body.project-scrolling .work-floating{
 </div>
 <div class="int-proof reveal reveal-d1">
 <p class="pricing-demo-label">Pricing toggle interaction</p>
-<img alt="Primer pricing toggle demo â€” switching between Monthly and Yearly, prices update instantly" class="pricing-demo-gif" loading="lazy" src="primer-pricing-demo.gif"/>
+<img alt="Primer pricing toggle demo - switching between Monthly and Yearly, prices update instantly" class="pricing-demo-gif" loading="lazy" src="primer-pricing-demo.gif"/>
 <p class="int-proof-caption">A focused proof point for state-based UI behavior.</p>
 </div>
 </div>
@@ -4170,7 +4383,7 @@ body.project-scrolling .work-floating{
 
 
 
-/* project hover preview â€” desktop only
+/* project hover preview - desktop only
    On touch/mobile, hover preview is disabled so the first tap opens the project link. */
 (function(){
   const canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -4473,13 +4686,13 @@ const document = {
   addEventListener: (...args) => root.addEventListener(...args)
 };
 
-/* â”€â”€ scroll reveal â”€â”€ */
+/* scroll reveal */
 const obs = new IntersectionObserver(entries => entries.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
 }), {threshold: .06});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* â”€â”€ network canvas â”€â”€ */
+/* network canvas */
 const canvas = document.getElementById('networkCanvas');
 
 if (canvas) {
@@ -4640,13 +4853,13 @@ const document = {
   addEventListener: (...args) => root.addEventListener(...args)
 };
 
-/* â”€â”€ scroll reveal â”€â”€ */
+/* scroll reveal */
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}
 }),{threshold:.06});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* â”€â”€ orbital canvas â”€â”€ */
+/* orbital canvas */
 const canvas=document.getElementById('orbitalCanvas');
 if (canvas) {
   const ctx=canvas.getContext('2d');
@@ -4813,7 +5026,7 @@ const document = {
   addEventListener: (...args) => root.addEventListener(...args)
 };
 
-/* â”€â”€ hero phone tilt â”€â”€ */
+/* hero phone tilt */
 (function(){
   const area = document.querySelector('.hero-right');
   const phone = document.getElementById('primerPhone');
@@ -4835,7 +5048,7 @@ const document = {
   });
 })();
 
-/* â”€â”€ scroll reveal â”€â”€ */
+/* scroll reveal */
 const obs = new IntersectionObserver(entries => entries.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
 }), {threshold: .06});
@@ -4845,7 +5058,7 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
 <script>
-/* NAVIGATION HARD FIX â€” keeps inline panels working even if older handlers fail */
+/* NAVIGATION HARD FIX - keeps inline panels working even if older handlers fail */
 (function(){
   const body = document.body;
   const homeLink = document.querySelector('[data-home-link]');
