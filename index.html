@@ -14,6 +14,10 @@
 <meta property="og:title" content="Nazanin Razi | Web Designer &amp; Front-end Developer"/>
 <meta property="og:description" content="A quiet editorial portfolio focused on Webflow builds, responsive UI systems, CMS architecture, and interaction design."/>
 <meta property="og:image" content="https://nazaninrazi.github.io/portfolio/home-preview.png"/>
+<meta property="og:image:secure_url" content="https://nazaninrazi.github.io/portfolio/home-preview.png"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="Homepage preview of Nazanin Razi portfolio"/>
 <meta property="og:url" content="https://nazaninrazi.github.io/portfolio/"/>
 <meta property="og:type" content="website"/>
@@ -107,7 +111,7 @@
 }
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden;cursor:none;}
-.skip-link{position:fixed;left:18px;top:18px;z-index:10000;transform:translateY(-140%);background:var(--ink);color:var(--bg);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:10px 14px;transition:transform .2s ease;}
+.skip-link{position:fixed;left:18px;top:18px;z-index:10000;transform:translateY(calc(-100% - 32px));background:var(--ink);color:var(--bg);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:10px 14px;transition:transform .2s ease;}
 .skip-link:focus-visible{transform:translateY(0);outline:1px solid var(--red);outline-offset:3px;}
 #cur{position:fixed;width:6px;height:6px;background:var(--red);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .18s ease,height .18s ease;}
 #cur-r{position:fixed;width:28px;height:28px;border:1px solid rgba(139,32,32,.22);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .22s ease,height .22s ease,border-color .22s ease;}
@@ -383,13 +387,7 @@ body.panel-open .reveal.on{
   font-variation-settings:'opsz' 144;
 }
 .panel-home-link::before{
-  content:'';
-  width:42px;
-  height:1px;
-  background:currentColor;
-  transform-origin:left center;
-  transform:scaleX(.65);
-  transition:transform .35s ease;
+  display:none;
 }
 body.panel-open .panel-home-link{
   opacity:1;
@@ -399,7 +397,7 @@ body.panel-open .panel-home-link{
   transition:opacity .35s ease .35s, transform .35s ease .35s, visibility 0s, color .25s ease;
 }
 body.panel-open .panel-home-link::before{
-  transform:scaleX(1);
+  transform:none;
 }
 .panel-home-link:hover{
   color:var(--red);
@@ -2788,13 +2786,7 @@ body.project-open .work-floating{
 }
 
 .work-floating::before{
-  content:'';
-  width:42px;
-  height:1px;
-  background:currentColor;
-  opacity:.78;
-  transform-origin:left center;
-  transform:scaleX(1);
+  display:none;
 }
 
 .work-floating:hover{
@@ -2815,7 +2807,6 @@ body.project-scrolling .work-floating{
 
 @media(max-width:520px){
   .work-floating{top:20px;left:16px;font-size:15px;}
-  .work-floating::before{width:34px;}
 }
 
 
